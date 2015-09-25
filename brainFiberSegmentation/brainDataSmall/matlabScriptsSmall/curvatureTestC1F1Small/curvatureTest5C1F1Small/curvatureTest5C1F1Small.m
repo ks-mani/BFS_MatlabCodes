@@ -1,3 +1,6 @@
+% In this, we are assuming the fibre to be enclosed by a cuboid of appropriate dimension. And then we are observing the angle
+% change by taking the vertices of the cuboid as reference, each one at a time 
+
 
 coordinateMatrix=dlmread('../../../class1/fiber1.txt');
 fileSubName='curvaturePointsT5C1F1';
