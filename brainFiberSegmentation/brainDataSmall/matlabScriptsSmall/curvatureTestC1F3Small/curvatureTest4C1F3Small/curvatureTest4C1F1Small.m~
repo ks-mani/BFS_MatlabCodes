@@ -1,0 +1,20 @@
+% In this we are taking angle difference between two consecutive points. If there is a sign change in any component of the two consecutive angle 
+% differences, then the final point of the former angle difference is the curvature point
+
+coordinateMatrix=dlmread('../../../class1/fiber1.txt');
+fileDescriptor=fopen('sumSquareDiffAngleDiffT4C1F1.txt','w+');
+angle1=acosd(coordinateMatrix(1,:)/norm(coordinateMatrix(1,:)));
+angle2=acosd(coordinateMatrix(2,:)/norm(coordinateMatrix(2,:)));
+angleDiffLeft=angle2-angle1;
+sizeOfCoordinateMatrix=size(coordinateMatrix);
+%fprintf(fileDescriptor,'Point No.\t\tLeft of Curvature Point\t\t\tCurvature Point\t\t\t\tRight of Curvature Point\n');
+for i=3:sizeOfCoordinateMatrix(1,1)
+  angle1=angle2;
+  angle2=acosd(coordinateMatrix(i,:)/norm(coordinateMatrix(i,:)));
+  angleDiffRight=angle2-angle1;
+  sumSquareDiffAngleDiff=sum((angleDiffRight-angleDiffLeft).^2);
+  fprintf(fileDescriptor,'%d-%d-%d\t\t%f\',i,i-1,i-2,)
+  angleDiffLeft=angleDiffRight;
+  
+end
+grid on ;
