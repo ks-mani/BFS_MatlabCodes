@@ -7,6 +7,6 @@
 \beamer@sectionintoc {5}{Brain Data}{11}{0}{5}
 \beamer@subsectionintoc {5}{1}{Data collection process}{11}{0}{5}
 \beamer@subsectionintoc {5}{2}{Data Format}{14}{0}{5}
-\beamer@sectionintoc {6}{Results}{15}{0}{6}
-\beamer@sectionintoc {7}{Gantt chart}{19}{0}{7}
-\beamer@sectionintoc {8}{References}{20}{0}{8}
+\beamer@sectionintoc {6}{Results}{17}{0}{6}
+\beamer@sectionintoc {7}{Gantt chart}{24}{0}{7}
+\beamer@sectionintoc {8}{References}{25}{0}{8}

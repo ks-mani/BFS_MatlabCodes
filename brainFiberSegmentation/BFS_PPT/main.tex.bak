@@ -8,6 +8,7 @@
 \usepackage{srcltx}
 \usepackage{hyperref}
 \usepackage{verbatim} 
+\usepackage{lmodern}
 
 \definecolor{kugreen}{rgb}{0.0, 0.2, 0.13}
 %\definecolor{kugreen}{RGB}{50,93,61}
@@ -28,7 +29,7 @@
 \logo{\includegraphics[width=1.5cm,height=1.5cm]{logo}}
 %\useoutertheme{infolines} 
 \title{Brain Fiber Segmentation}
-\author{Anand K. Parmar(B12021), Mani Kumar(B12012)\\Mentor\\Dr. Aditya Nigam}
+\author{Anand K. Parmar  B12021\\ Mani Kumar \hspace{0.7cm} B12012 \newline \newline Mentor\\Dr. Aditya Nigam}
 \institute{School of Computing and Electrical Engineering \\ Indian Institute of Technology, Mandi}
 \date{09 Oct, 2015}
 
@@ -82,7 +83,11 @@ anatomically meaningful.
 
 \frame{
 \frametitle{Background and Related Work}
-
+\begin{itemize}
+	\item White matter atlas creation, using group spectral clustering of tractography and Automatic Segmentation of Tractography from novel subjects by extending the spectral clustering solution, stored in the atlas, using the Nystrom Method. (Donnell-Westin, 2007)
+	\item Treating image segmentation as a graph partitioning problem and proposing novel global criterion, the normalized cut, for segmenting the graph.(Shi and Malik, 2000)
+	\item Proposing a nonparametric Bayesian framework to cluster white matter fiber tracts into bundles using a hierarchical Dirichlet Processes Mixture(HDPM) Model.  (Wang-Eric-Westin, - )
+\end{itemize}
 }
 
 \section{Introduction}
@@ -161,14 +166,72 @@ Preferred diffusion directions are shown as the long axes of diffusion ellipsoid
 \subsection{Data Format}
 
 \frame{
-\frametitle{Data Format}
-
+\frametitle{Available data with us}
+Initially, we have 3 brain’s data as .trk file format.
+\begin{itemize}
+\item brain’s data (classified) which is ground truth model for us. 
+\item brain’s data (Non-classified) which can be used for testing.
+\end{itemize}
 }
+
+
+\frame{
+\frametitle{Data Format}
+	The data is given in a file with .trk extension. Track(.trk) file is one single binary file, with the first 1000 bytes as the header and rest as the body. Some fields of header of track file are-
+\begin{center}
+\begin{tabular}{ |l|l|l| }
+  \hline
+  \textbf{Name} & \textbf{Data-type} & \textbf{Bytes} \\
+  \hline
+  id\_string[6] & \textit{char} & 6 \\
+  dim[3] & \textit{short int} & 6 \\
+  voxel\_size[3] & \textit{float} & 12 \\
+  n\_count & \textit{int} & 4 \\
+  version & \textit{int} & 4\\
+  hdr\_size & \textit{int} & 4\\
+  
+  \hline
+\end{tabular}
+\end{center}
+
+ 
+And the body part of the file contains $"n\_count"$ numbers of fibers as struct type and each struct of fiber contains \textbf{1.num\_points}: number of points in that fiber, \textbf{2. 2D array} of num\_point * 3, 
+where each row displays x, y, z coordinates of points of that fiber.
+
+	
+}
+
+\frame{
+\frametitle{Note}
+Here, we are using some name for particular things, which are mentioned below:
+\begin{itemize}
+\item Ground truth data - Brain1 data (classified)
+\item Class 0 - Grey Matter of Brain
+\item Classes of white matter fiber tracts:
+\end{itemize}
+\begin{center}
+\begin{tabular}{ |l|l| }
+  \hline
+  \textbf{Class no.} & \textbf{Class Name} \\
+  \hline
+  Class1 & Arcuate \\
+  Class2 & Cingulum \\
+  Class3 & Corticospinal \\
+  Class4 & Forceps Major \\
+  Class5 & Fornix \\
+  Class6 & Inferior Occipitofrontal Fasciculus \\
+  Class7 & Superior Longitudinal Fasciculus \\
+  Class8 & Uncinate\\
+  \hline
+\end{tabular}
+\end{center}
+}
+
 
 \section{Results}
 
 \frame{
-\frametitle{Parameter-1.1}
+\frametitle{Result(1)}
 \begin{tabular}{ |l|l| }
   \hline
   \textbf{Class no.} & \textbf{Start-points Mean} \\
@@ -186,7 +249,7 @@ Preferred diffusion directions are shown as the long axes of diffusion ellipsoid
 }
 
 \frame{
-\frametitle{Parameter-1.2}
+\frametitle{Result(2)}
 \begin{tabular}{ |l|l| }
   \hline
   \textbf{Class no.} & \textbf{Start-points Standard deviation} \\
@@ -205,7 +268,7 @@ Preferred diffusion directions are shown as the long axes of diffusion ellipsoid
 
 
 \frame{
-\frametitle{Parameter-2.1}
+\frametitle{Result(3)}
 \begin{tabular}{ |l|l| }
   \hline
   \textbf{Class no.} & \textbf{End-points Mean} \\
@@ -223,7 +286,7 @@ Preferred diffusion directions are shown as the long axes of diffusion ellipsoid
 }
 
 \frame{
-\frametitle{Parameter-2.2}
+\frametitle{Result(4)}
 \begin{tabular}{ |l|l| }
   \hline
   \textbf{Class no.} & \textbf{End-points Standard deviation} \\
@@ -238,6 +301,35 @@ Preferred diffusion directions are shown as the long axes of diffusion ellipsoid
   Class8 & (3.92595123,3.12721375,8.44942414) \\
   \hline
 \end{tabular}
+}
+
+\frame{
+\frametitle{Result(5)}
+\begin{tabular}{ |l|l|l| }
+  \hline
+  \textbf{Class no.} & \textbf{Mean Length} & \textbf{Standard deviation} \\
+  \hline
+  Class0 & 63.2312441493006 & 28.6485729787890 \\
+  Class1 & 90.6890004417171 & 13.1847545751457  \\
+  Class2 & 61.1771305385634 & 17.7718004108051 \\
+  Class3 & 83.7487559847006 & 18.2878480190662 \\
+  Class4 & 120.422320606324 & 9.34715491299375 \\
+  Class5 & 39.9237420331200 & 11.8112475345795 \\
+  Class6 & 119.862410788331 & 14.6056708300016 \\
+  Class7 & 81.8378630440721 & 13.7995291380608 \\
+  Class8 & 36.4855790683932 & 6.96950091496981 \\
+  \hline
+\end{tabular}
+}
+
+\frame{
+\frametitle{Result(6)}
+\includegraphics[width=10cm,height=6cm]{length_chart}
+\begin{itemize}
+}
+
+\frame{
+\frametitle{}
 }
 
 \section{Gantt chart}
@@ -257,6 +349,9 @@ Preferred diffusion directions are shown as the long axes of diffusion ellipsoid
 \item \url{wikipedia.com}
 \item \url{www.lrdc.pitt.edu/schneider/bcm/}
 \item \url{www.trackvis.org/docs/?subsect=fileformat}
+\item Lauren J. O’Donnell and Carl-Fredrik Westin (2007). \textbf{\textit{Automatic Tractography Segmentation Using a High Dimensional White Matter Atlas}} . Members, IEEE \\ \textbf{In-text Reference:} (Donnell-Westin, 2007)
+\item Jianbo Shi and Jitendra Malik(2000). \textbf{\textit{Normalized Cuts and Image Segmentation}}.Members, IEEE \\ \textbf{In-text Reference:} (Shi and Malik, 2000)
+\item Xiaogang Wang, W. Eric L. Grimson and Carl-Fredrik Westin.\textbf{\textit{Tractography	Segmentation using a Hierarchical Dirichlet Processes Mixture Model}}. \\ \textbf{In-text Reference:} (Wang-Eric-Westin, - )
 \end{itemize}
 }
 
