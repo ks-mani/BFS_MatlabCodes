@@ -45,6 +45,45 @@
 \tableofcontents%[pausesection]
 }
 
+\section{Introduction}
+
+
+\frame{
+\frametitle{Introduction: Neuronal cell Structure}
+\includegraphics[width=10cm,height=5cm]{Neuron}
+}
+
+\frame{
+\frametitle{Introduction: Communication in Neurons}
+\begin{center}
+\includegraphics[width=7cm,height=3.5cm]{Neuron_connection}
+\end{center}
+ Here, Dendrites receives signals from other neurons, the cell body, which processes those signals and the axon, a long cable that reaches out and interacts with other neuron’s dendrites. When different parts of the brain communicate and coordinate with each other, they send nerve impulses, which are electrical charges that travel down the axon of a neuron, eventually reaching the next neuron in the chain.
+}
+
+\frame{
+\frametitle{Introduction: Brain}
+\begin{itemize}
+\item The brain contains more than 100 billion neurons that communicate with each other via axons for the formation of complex neural networks.
+\item In Brain, two kinds of tissue are there: 
+	\begin{itemize}
+	\item Grey matter,
+	\item White matter.
+	\end{itemize}  
+\end{itemize}
+}
+
+\frame{
+\frametitle{Introduction: Brain}
+\includegraphics[width=10cm,height=5cm]{Brain_Cortex_Harvard}
+\begin{itemize}
+	\item Grey matter, which has a pinkish-grey color in the living brain, contains the cell bodies, dendrites and axon terminals of neurons, so it is where all synapses are. 
+	\item White matter is made of axons connecting different 	parts of grey matter to each other.
+\end{itemize}
+}
+
+
+
 \section{Problem Statement}
 
 \frame{
@@ -60,10 +99,6 @@ anatomically meaningful.
 }
 
 
-\frame{
-\frametitle{Problem Statement and Long Term Goal}
-\includegraphics[width=10cm,height=7cm]{goal}
-}
 
 \section{Motivation}
 
@@ -90,41 +125,6 @@ anatomically meaningful.
 \end{itemize}
 }
 
-\section{Introduction}
-
-\frame{
-\frametitle{Introduction}
-\begin{itemize}
-\item The brain contains more than 100 billion neurons that communicate with each other via axons for the formation of complex neural networks.
-\item In Brain, two kinds of tissue are there: 
-	\begin{itemize}
-	\item Grey matter,
-	\item White matter.
-	\end{itemize}  
-\end{itemize}
-}
-
-\frame{
-\frametitle{Introduction: Brain}
-\includegraphics[width=10cm,height=5cm]{Brain_Cortex_Harvard}
-\begin{itemize}
-	\item Grey matter, which has a pinkish-grey color in the living brain, contains the cell bodies, dendrites and axon terminals of neurons, so it is where all synapses are. 
-	\item White matter is made of axons connecting different 	parts of grey matter to each other.
-\end{itemize}
-}
-
-\frame{
-\frametitle{Introduction: Neuronal cell Structure}
-\includegraphics[width=10cm,height=5cm]{Neuron}
-}
-
-\frame{
-\frametitle{Introduction: Communication in Neurons}
-\begin{center}
-\includegraphics[width=7cm,height=3.5cm]{Neuron_connection}
-\end{center}
- Here, Dendrites receives signals from other neurons, the cell body, which processes those signals and the axon, a long cable that reaches out and interacts with other neuron’s dendrites. When different parts of the brain communicate and coordinate with each other, they send nerve impulses, which are electrical charges that travel down the axon of a neuron, eventually reaching the next neuron in the chain.
-}
 
 \section{Brain Data}
 
@@ -227,6 +227,10 @@ Here, we are using some name for particular things, which are mentioned below:
 \end{center}
 }
 
+\frame{
+\frametitle{Methodology}
+By observing ground truth data and fiber tracts’ characteristics, we will develop some feature vector by which we can classify all the classes of white matter with good acuracy. After extracting features for classes, we will analyse this model using different classification algorithm and give the result as the best classification algorithm.
+}
 
 \section{Results}
 
@@ -325,11 +329,17 @@ Here, we are using some name for particular things, which are mentioned below:
 \frame{
 \frametitle{Result(6)}
 \includegraphics[width=10cm,height=6cm]{length_chart}
-\begin{itemize}
+
 }
 
 \frame{
-\frametitle{}
+\frametitle{Working on}
+\begin{itemize}
+\item Here, by observations we can say that above 105, we have only two classes eg. class-4 and class-6. So we can consider that point to classify this two class from rest of data.
+\item Also we are observing starting and ending points of classes as well as curvature points of classes for classification.
+\end{itemize}
+\includegraphics[width=10cm,height=6cm]{curvature_point1}
+
 }
 
 \section{Gantt chart}

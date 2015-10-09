@@ -1,12 +1,12 @@
 \beamer@endinputifotherversion {3.33pt}
 \select@language {danish}
-\beamer@sectionintoc {1}{Problem Statement}{3}{0}{1}
-\beamer@sectionintoc {2}{Motivation}{5}{0}{2}
-\beamer@sectionintoc {3}{Background}{6}{0}{3}
-\beamer@sectionintoc {4}{Introduction}{7}{0}{4}
-\beamer@sectionintoc {5}{Brain Data}{11}{0}{5}
-\beamer@subsectionintoc {5}{1}{Data collection process}{11}{0}{5}
-\beamer@subsectionintoc {5}{2}{Data Format}{14}{0}{5}
-\beamer@sectionintoc {6}{Results}{17}{0}{6}
-\beamer@sectionintoc {7}{Gantt chart}{24}{0}{7}
-\beamer@sectionintoc {8}{References}{25}{0}{8}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Problem Statement}{7}{0}{2}
+\beamer@sectionintoc {3}{Motivation}{8}{0}{3}
+\beamer@sectionintoc {4}{Background}{9}{0}{4}
+\beamer@sectionintoc {5}{Brain Data}{10}{0}{5}
+\beamer@subsectionintoc {5}{1}{Data collection process}{10}{0}{5}
+\beamer@subsectionintoc {5}{2}{Data Format}{13}{0}{5}
+\beamer@sectionintoc {6}{Results}{18}{0}{6}
+\beamer@sectionintoc {7}{Gantt chart}{25}{0}{7}
+\beamer@sectionintoc {8}{References}{26}{0}{8}
